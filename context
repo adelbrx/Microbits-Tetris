@@ -1,0 +1,51 @@
+ Détails des règles :
+ --------------------- 
+
+- un plateau est un carrée de 5x5
+- le plateau sera vide au début
+- les cases occupée par les pièces lachée sont inaccessible
+- la pièce apparait dans le coin supérieur gauche du plateau aprés sa création
+- la manette peut déplacer la pièce crée jusqu'à ce qu'elle la lâche
+- le jeu s'arrête lorsqu'il n'est plus possible d'ajouter une nouvelle pièce sans qu'elle "recouvre" au moin une case déjà occupée 
+- la manette vous permettra de choisir la direction et afficher les cases occupées
+- la console placera les pièces lâchées et gérera la pièce en cour de déplacement
+- la console suivre les ordres de la manette
+- la console n'affiche pas le plateau
+- la console affiche uniquement le score qui est le nombre des pièces lâchées
+- la console contient les informations liées au jeu 
+- dans le plateau il n'y pas de gravité qui poussent les pièces vers le bas
+
+
+
+ Module pour la console :
+ -------------------------
+ 
+- la pièce ne tourne pas
+- attention à l'empêcher de sortir du plateau ou de passer par une case inaccessible
+- choisir le numéro de groupe (le numéro de  groupe doit être le même dans la manette et la console pour la communication réussite) 
+- la console répète les étapes suivante :
+ 	
+	- affichage du score
+ 	- création d'une nouvelle pièce et la placer en haut à gauche
+ 	- vérifier si la partie est fini
+ 	- sinon tant que la pièce n'est pas lachée :
+ 	
+		- envoyer à la manette une decription du plateau et son contenu 
+		- attendre une commande envoyée par la manette 
+		- déplacer la pièce ou la lâcher sur le plateau en fonction de la commande reçue  
+ 		
+ 		
+ 		
+ Module pour la manette :
+ ------------------------
+ 
+ - choisir le numéro de groupe (le numéro de  groupe doit être le même dans la manette et la console pour la communication réussite) 		
+ - il n'y aucune variable liée è l'état du jeu 
+ - la manette répète les étapes suivantes :
+ 	
+ 	- attendre une description du plateau envoyé par la console 
+ 	- afficher l'état du plateau et la pièce sui s'y trouve 
+ 	- attendre que le boutton A soit pressé pour indiquer que le joueur choisi la direction ou que le bouton B pour indiquer qu'il faut lâcher la pièce
+ 	- utiliser les capteurs de microbit pour identifier la direction et l'envoyer à la console par message radio (string) si la pièce bouge  sinon envoyer un message pour la lâcher
+ 	  
+ 		
